@@ -3,6 +3,7 @@ package com.socialcops.socialcops_video_app_demo;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.MediaController;
 import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,12 @@ public class MainActivity extends AppCompatActivity {
         Uri videoURI = Uri.parse(videoURL);
 
         videoView.setVideoURI(videoURI);
+
+        // MEDIA CONTROLS on the VideoView
+        MediaController videoControls = new MediaController(this);
+        videoControls.setAnchorView(videoView);
+        videoView.setMediaController(videoControls);
+
         videoView.start();
     }
 }

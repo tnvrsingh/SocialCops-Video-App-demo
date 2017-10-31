@@ -1,34 +1,32 @@
 package com.socialcops.socialcops_video_app_demo;
 
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.MediaController;
 import android.widget.VideoView;
-
 import com.danikula.videocache.HttpProxyCacheServer;
 
 public class MainActivity extends AppCompatActivity {
 
-    String videoURL = "https://socialcops.com/images/old/spec/home/header-img-background_video-1920-480.mp4";
+    String proxyUrl, videoURL = "https://socialcops.com/images/old/spec/home/header-img-background_video-1920-480.mp4";
+    VideoView videoView;
+    MediaController videoControls;
+    HttpProxyCacheServer proxy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        VideoView videoView = (VideoView)findViewById(R.id.videoViewComponent);
-//        Uri videoURI = Uri.parse(videoURL);
+        videoView = (VideoView)findViewById(R.id.videoViewComponent);
 
-      //  videoView.setVideoURI(videoURI);
-
-        HttpProxyCacheServer proxy = CacheManager.getCacheServer(this);
-        String proxyUrl = proxy.getProxyUrl(videoURL);
-
+        // Proxy for cache management
+        proxy = CacheManager.getCacheServer(this);
+        proxyUrl = proxy.getProxyUrl(videoURL);
         videoView.setVideoPath(proxyUrl);
 
         // MEDIA CONTROLS on the VideoView
-        MediaController videoControls = new MediaController(this);
+        videoControls = new MediaController(this);
         videoControls.setAnchorView(videoView);
         videoView.setMediaController(videoControls);
 

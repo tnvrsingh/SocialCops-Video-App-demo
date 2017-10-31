@@ -12,7 +12,7 @@ SocialCops-Video-App-demo is my submission to the challenge hosted by SocialCops
 
 ### Libraries used 
 
-- [Android Video Cache](https://github.com/danikula/AndroidVideoCache) - This library adds caching support to VideoView.
+- [Android Video Cache](https://github.com/danikula/AndroidVideoCache) - This library adds caching support to VideoView and it is because of this library that there is a single request going to the server for streaming and saving.
 
 ### Classes: 
 

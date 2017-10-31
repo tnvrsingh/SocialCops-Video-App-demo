@@ -2,11 +2,11 @@ package com.socialcops.socialcops_video_app_demo;
 
 import android.app.Application;
 import android.content.Context;
+import com.danikula.videocache.HttpProxyCacheServer;
 
 /**
  * Created by kalol on 31/10/17.
  */
-import com.danikula.videocache.HttpProxyCacheServer;
 
 public class CacheManager extends Application {
 

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
+import com.danikula.videocache.HttpProxyCacheServer;
+
 public class MainActivity extends AppCompatActivity {
 
     String videoURL = "https://socialcops.com/images/old/spec/home/header-img-background_video-1920-480.mp4";
@@ -16,9 +18,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         VideoView videoView = (VideoView)findViewById(R.id.videoViewComponent);
-        Uri videoURI = Uri.parse(videoURL);
+//        Uri videoURI = Uri.parse(videoURL);
 
-        videoView.setVideoURI(videoURI);
+      //  videoView.setVideoURI(videoURI);
+
+        HttpProxyCacheServer proxy = CacheManager.getCacheServer(this);
+        String proxyUrl = proxy.getProxyUrl(videoURL);
+
+        videoView.setVideoPath(proxyUrl);
 
         // MEDIA CONTROLS on the VideoView
         MediaController videoControls = new MediaController(this);

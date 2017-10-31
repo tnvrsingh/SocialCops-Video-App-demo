@@ -6,7 +6,7 @@ SocialCops-Video-App-demo is my submission to the challenge hosted by SocialCops
 - You can use this link to access the video: https://socialcops.com/images/old/spec/home/header-img-background_video-1920-480.mp4
 - Make sure there is a single request going to the server for streaming and saving on the Android phone
 
-**All 3 successfully completed.**
+**All successfully completed.**
 
 # Documentation
 
